@@ -30,7 +30,7 @@ import tempfile
 import logging
 import tarfile
 from ipaddr import IPv4Network, IPv4Address, IPv6Network, IPv6Address
-
+from ipaddress import ip_network, ip_interface, ip_address
 from random import randint
 import configparser
 import subprocess
@@ -63,8 +63,10 @@ class SOSCleaner:
         self.loglevel = 'INFO'
         self.net_db = list()  # Network Information database
         self.ip_db = list()
-        self.default_net = IPv4Network('128.0.0.0/8')
-        self.default_netmask = self.default_net.prefixlen
+        self.default_net = ip_network('128.0.0.0/8')
+        # self.default_net = IPv4Network('128.0.0.0/8')
+        self.default_netmask = self.default_net.netmask
+        # self.default_netmask = self.default_net.prefixlen
         # we'll have to keep track of how many networks we have so we don't have to count them each time we need to create a new one.
         self.net_count = 0
         self.net_metadata = dict()
