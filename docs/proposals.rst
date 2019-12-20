@@ -25,9 +25,9 @@ Interacting with Kubernetes
 
 If `soscleaner` was able to be accessed on-demand via an API, interacting with Kubernetes becomes a possibility. An initial thought is to extend `kubectl` with a helper script that would take the output of a supplied command and obfuscate it programmatically. For example:
 
-```
-$ kubectl obfuscate get pods -n default
-```
+.. code-block:: shell
+
+  $ kubectl obfuscate get pods -n default
 
 The helper script would:
 
