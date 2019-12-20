@@ -26,4 +26,5 @@ Soscleaner is an open-source tool to take an `sosreport <https://access.redhat.c
    contributing
    commandline
    docstrings
+   proposals
    license
