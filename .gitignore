@@ -37,3 +37,7 @@ nosetests.xml
 #Vim temp files
 *.swp
 *.swo
+
+#snap files
+prime
+*.snap

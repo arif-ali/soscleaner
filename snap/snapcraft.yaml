@@ -1,0 +1,36 @@
+name: soscleaner
+base: core18
+adopt-info: soscleaner
+summary: Cleans sensitive and un-wanted data from an existing sosreport
+description: |
+  SOSCleaner is a tool to consistently obfuscate sensitive information in
+  large datasets like sosreports. It works on any data set, from 1 file to
+  thousands.
+
+grade: devel
+confinement: devmode
+
+parts:
+  soscleaner:
+    plugin: python
+    requirements:
+      - "requirements.txt"
+    python-version: python2
+    source: .
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version $(git describe --always)
+    build-packages:
+      - snapcraft
+      - python
+      - git
+    stage-packages:
+      - file
+      - libmagic1
+      - xz-utils
+
+apps:
+  soscleaner:
+    command: bin/soscleaner
+    environment:
+      MAGIC: $SNAP/usr/share/file/magic.mgc
