@@ -8,3 +8,4 @@ copr-cli
 simplejson
 bumpversion
 mkdocs
+configparser

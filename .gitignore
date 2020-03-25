@@ -38,3 +38,7 @@ nosetests.xml
 *.swp
 *.swo
 soscleaner/soscleaner.py.bak
+
+#snap files
+prime
+*.snap
