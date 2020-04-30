@@ -13,8 +13,6 @@ confinement: devmode
 parts:
   soscleaner:
     plugin: python
-    requirements:
-      - "requirements.txt"
     python-version: python2
     source: .
     override-pull: |
