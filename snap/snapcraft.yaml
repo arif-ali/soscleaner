@@ -34,5 +34,4 @@ apps:
       MAGIC: $SNAP/usr/share/file/magic.mgc
     plugs:
       - home
-      - mount-observe
       - log-observe
