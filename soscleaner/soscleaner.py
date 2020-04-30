@@ -39,6 +39,12 @@ from random import randint
 import configparser
 import subprocess
 
+import contextlib
+try:
+    import lzma
+except ImportError:
+    from backports import lzma
+
 
 class SOSCleaner(object):
     """
@@ -375,11 +381,9 @@ class SOSCleaner(object):
                         try:
                             self.logger.info(
                                 'Data Source Appears To Be LZMA Encrypted Data - decompressing into %s', self.origin_path)
-                            self.logger.info(
-                                'LZMA Hack - Creating %s', self.origin_path)
-                            os.makedirs( self.origin_path, 0o755 )
-                            subprocess.Popen(
-                                ["tar", "-xJf", path, "-C", self.origin_path]).wait()
+                            with contextlib.closing(lzma.LZMAFile(path)) as xz:
+                                with tarfile.open(fileobj=xz) as f:
+                                    f.extractall(self.origin_path)
 
                             return_path = os.path.join(
                                 self.origin_path, os.listdir(self.origin_path)[0])

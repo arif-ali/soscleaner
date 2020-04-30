@@ -36,6 +36,7 @@ setup(
         'ipaddr',
         'future',
         'configparser>=4,<5',
+        'backports.lzma',
     ],
     package_dir={'': 'soscleaner'},
     test_suite='test_soscleaner',
