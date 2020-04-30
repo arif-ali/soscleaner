@@ -37,6 +37,7 @@ nosetests.xml
 #Vim temp files
 *.swp
 *.swo
+
 soscleaner/soscleaner.py.bak
 
 #snap files
