@@ -22,10 +22,10 @@ parts:
       - snapcraft
       - python
       - git
+      - liblzma-dev
     stage-packages:
       - file
       - libmagic1
-      - xz-utils
 
 apps:
   soscleaner:
