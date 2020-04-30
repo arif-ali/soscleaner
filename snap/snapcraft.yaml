@@ -7,8 +7,11 @@ description: |
   large datasets like sosreports. It works on any data set, from 1 file to
   thousands.
 
-grade: devel
-confinement: devmode
+  *Note* The file that needs to be obfuscated need to be blased in the
+  home directory, so the snap is able to access the file
+
+grade: stable
+confinement: strict
 
 parts:
   soscleaner:
